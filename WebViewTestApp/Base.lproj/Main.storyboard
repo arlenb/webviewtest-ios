@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Embedded_Web_View_Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebViewTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +35,7 @@
                                     <action selector="wkWebViewPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="y67-15-kKC"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" toolTip="URL to load" borderStyle="roundedRect" placeholder="URL to load" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F5i-bm-fou">
+                            <textField toolTip="URL to load" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL to load" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F5i-bm-fou">
                                 <rect key="frame" x="16" y="367" width="361" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -55,7 +56,7 @@
         <!--Web View Controller-->
         <scene sceneID="GMT-el-h7t">
             <objects>
-                <viewController storyboardIdentifier="webView" id="lk9-uF-U0n" customClass="WebViewController" customModule="Embedded_Web_View_Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webView" id="lk9-uF-U0n" customClass="WebViewController" customModule="WebViewTestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j33-CX-T4r">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +86,9 @@
                                     <action selector="closeTapped:" destination="lk9-uF-U0n" eventType="touchUpInside" id="2Je-cs-Dbr"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RaG-sv-gwH">
+                                <rect key="frame" x="0.0" y="97" width="393" height="4"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="okX-FM-z7D"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
@@ -93,21 +97,25 @@
                             <constraint firstItem="okX-FM-z7D" firstAttribute="trailing" secondItem="E3R-ft-Eza" secondAttribute="trailing" id="1zQ-r4-gwk"/>
                             <constraint firstItem="E3R-ft-Eza" firstAttribute="leading" secondItem="okX-FM-z7D" secondAttribute="leading" id="5ls-ga-yT1"/>
                             <constraint firstItem="E3R-ft-Eza" firstAttribute="top" secondItem="Q5f-0Q-T0h" secondAttribute="bottom" id="8ca-tG-nWB"/>
+                            <constraint firstItem="RaG-sv-gwH" firstAttribute="leading" secondItem="okX-FM-z7D" secondAttribute="leading" id="Feh-c9-ydj"/>
                             <constraint firstItem="Q5f-0Q-T0h" firstAttribute="leading" secondItem="okX-FM-z7D" secondAttribute="leading" constant="10" id="GBc-xk-G5M"/>
                             <constraint firstItem="Q5f-0Q-T0h" firstAttribute="top" secondItem="okX-FM-z7D" secondAttribute="top" constant="3" id="GFa-0c-QLY"/>
                             <constraint firstItem="okX-FM-z7D" firstAttribute="bottom" secondItem="E3R-ft-Eza" secondAttribute="bottom" id="Ha6-0n-OTv"/>
                             <constraint firstItem="RRj-jt-6DQ" firstAttribute="centerX" secondItem="j33-CX-T4r" secondAttribute="centerX" id="MLx-yn-xr7"/>
                             <constraint firstItem="RRj-jt-6DQ" firstAttribute="centerY" secondItem="j33-CX-T4r" secondAttribute="centerY" id="P2d-x3-XYX"/>
                             <constraint firstItem="HpU-vD-Ov0" firstAttribute="leading" secondItem="okX-FM-z7D" secondAttribute="leading" id="QyW-MR-TLm"/>
+                            <constraint firstItem="okX-FM-z7D" firstAttribute="trailing" secondItem="RaG-sv-gwH" secondAttribute="trailing" id="SA0-28-5xo"/>
                             <constraint firstItem="HpU-vD-Ov0" firstAttribute="top" secondItem="okX-FM-z7D" secondAttribute="top" id="VAd-iN-kJN"/>
                             <constraint firstItem="okX-FM-z7D" firstAttribute="trailing" secondItem="HpU-vD-Ov0" secondAttribute="trailing" id="Xwr-IT-oL8"/>
                             <constraint firstItem="okX-FM-z7D" firstAttribute="trailing" secondItem="RRj-jt-6DQ" secondAttribute="trailing" id="eSj-ZF-HlA"/>
                             <constraint firstItem="okX-FM-z7D" firstAttribute="bottom" secondItem="HpU-vD-Ov0" secondAttribute="bottom" id="g59-c7-dc1"/>
+                            <constraint firstItem="RaG-sv-gwH" firstAttribute="top" secondItem="E3R-ft-Eza" secondAttribute="top" id="rtL-jY-F9o"/>
                             <constraint firstItem="RRj-jt-6DQ" firstAttribute="leading" secondItem="okX-FM-z7D" secondAttribute="leading" id="wV9-yT-y5e"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="errorText" destination="RRj-jt-6DQ" id="6Yx-Kr-Igg"/>
+                        <outlet property="progressBar" destination="RaG-sv-gwH" id="PQN-RS-BuX"/>
                         <outlet property="webView" destination="E3R-ft-Eza" id="BLu-Y6-Ls2"/>
                     </connections>
                 </viewController>

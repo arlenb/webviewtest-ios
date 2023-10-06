@@ -12,14 +12,14 @@ import SafariServices
 
 class WebViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var errorText: UILabel!
-    var progressView: UIProgressView!
     
     var url: URL!
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("loaded")
-        progressView.isHidden = true
+        progressBar.isHidden = true
     }
     @IBAction func closeTapped(_ sender: Any) {
         dismiss(animated: true)
@@ -29,7 +29,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         print("WebView error 2: ", error.localizedDescription)
         errorText.text = error.localizedDescription
         errorText.isHidden = false
-        progressView.isHidden = true
+        progressBar.isHidden = true
     }
     
     func setUrl(urlStr : String) {
@@ -46,11 +46,6 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         
         webView.navigationDelegate = self
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-        // Create web view and progress bar
-        progressView = UIProgressView(progressViewStyle: .default)
-        view.addSubview(progressView)
-        progressView.center = CGPoint(x: view.frame.size.width  / 2,
-                                     y: view.frame.size.height / 2)
 
         print("Loading url: ", url.absoluteString)
         webView.load(URLRequest(url: url))
@@ -59,7 +54,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
-            progressView.progress = Float(webView.estimatedProgress)
+            progressBar.progress = Float(webView.estimatedProgress)
         }
     }
 }
